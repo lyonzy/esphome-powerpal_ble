@@ -90,7 +90,7 @@ class Powerpal : public esphome::ble_client::BLEClientNode, public Component {
     pairing_code_[1] = (pairing_code & 0x0000FF00) >> 8;
     pairing_code_[2] = (pairing_code & 0x00FF0000) >> 16;
     pairing_code_[3] = (pairing_code & 0xFF000000) >> 24;
-    ESP_LOGI(TAG, "set_pairing_code called with: %u (hex: %08x), stored as: %s", pairing_code, pairing_code, this->pkt_to_hex_(pairing_code_, sizeof(pairing_code_)).c_str());
+    ESP_LOGI("powerpal_ble", "set_pairing_code called with: %u (hex: %08x), stored as: %s", pairing_code, pairing_code, this->pkt_to_hex_(pairing_code_, sizeof(pairing_code_)).c_str());
   }
   void set_notification_interval(uint8_t reading_batch_size) { reading_batch_size_[0] = reading_batch_size; }
   void set_device_id(std::string powerpal_device_id) { powerpal_device_id_ = powerpal_device_id; }
