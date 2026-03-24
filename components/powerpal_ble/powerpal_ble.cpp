@@ -365,7 +365,7 @@ void Powerpal::request_subscription_(const char *trigger_reason) {
     return;
   }
 
-  ESP_LOGI(TAG, "[%s] Writing pairing code %s to resume notifications (%s)", this->pairing_code_, this->parent_->address_str(), trigger_reason);
+  ESP_LOGI(TAG, "[%s] Writing pairing code %s to resume notifications (%s)", this->parent_->address_str(), this->pairing_code_, trigger_reason);
   auto status = esp_ble_gattc_write_char(this->parent()->get_gattc_if(), this->parent()->get_conn_id(),
                                          this->pairing_code_char_handle_, sizeof(this->pairing_code_),
                                          this->pairing_code_, ESP_GATT_WRITE_TYPE_RSP, ESP_GATT_AUTH_REQ_NONE);
