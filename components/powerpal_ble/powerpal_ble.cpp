@@ -467,7 +467,7 @@ void Powerpal::gattc_event_handler(esp_gattc_cb_event_t event, esp_gatt_if_t gat
             }
           } else {
             // reading batch size is set correctly so subscribe to measurement notifications
-            ESP_LOGI(TAG, "esp_ble_gattc_register_for_notify, handle=0x%02x", status);
+            ESP_LOGI(TAG, "esp_ble_gattc_register_for_notify, handle=0x%02x", this->measurement_char_handle_);
             auto status = esp_ble_gattc_register_for_notify(this->parent_->get_gattc_if(), this->parent_->get_remote_bda(),
                                                             this->measurement_char_handle_);
             if (status) {
